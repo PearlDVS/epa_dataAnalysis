@@ -67,6 +67,7 @@ levels(df$anim_sex)
 levels(df$anim_sex) = c("male","female")
 (prop.table(table(df$anim_sex))) # another example of the benefits of factorization in R
 
+table(df$fmd_exp_st,df$study_str,df$anim_sex)
 
 #3.1.4 - simple proportion in R - Apparent prevalence at Animal Level ####
 str(df)
@@ -81,6 +82,7 @@ sum(df$fmd_exp_st)/N.tested #[fmd_exp_st] is the key outcome based on sero-statu
 
 # In this analysis the impact of ICC is defined as the Design effect (deff) - it is the ratio of the required sample size to the effective sample size in perfectly random population
 #deff = rho * (m-1) + 1
+
 
 #3.1.4 - task create a function to establish deff
 (D = deff(rho=0.1, m = 3))
