@@ -1,6 +1,6 @@
 # Demo 1.1 ####
 getwd()
-rm(list=ls()) 
+
 #Working directory is where a project is based
 
 # 1.2 Introduction to R ####
@@ -8,57 +8,71 @@ rm(list=ls())
 8*4 # use Cntrl-Enter to run a line or selected piece of code
 (8*4)^2
 x = (8*4)^2
-x
-print(x)
+y = 99
+x * y
+s = 100
+w <- 20
+z = 15
+"john" == "pearl"
+ispearlthesameascathy <- "pearl" == "cathy" 
+y + z + s
 
+print(x)
+rm(list=ls())
+
+ 
 # 1.2.2 Assigning values and datatypes in R ####
 # 1.2.2.1 Vectors ####
 quantity <- c(12,43,64,87,98,12,23,67,12,34,21) # c=concatenate into a vector; use = or <- (ALT -) to assign in R
 quantity
 class(quantity)
-sum(quantity)
-mean(quantity)
+sum(quantitymean(quantity))
 sd(quantity)
 summary(quantity)
 
 # Example: Diagnostic test results for 3 animals on multiple days
 # Data are Ct values for a test that is performed on these animals
 test1 <- c(23,40,19)
-(test2 <- c(29,40,26)) #notice putting code in brackets prints it out after
+(test2 <- c(29,40,26))#notice putting code in brackets prints it out after
+(test3 <- c(25,35,30))
 
 # you can name these vectors - lets make a vector of names and assign them
 animalnames = c("Animal 1", "Animal 2", "Animal 3")
 # assign names to test1 vector
 names(test1) = animalnames
 names(test2) = animalnames
+names(test3) = animalnames
 test1
 test2
+test3
 summary(test1) # it is still a numeric vector
-boxplot(c(test1,test2))
-summary(c(test1,test2))
+boxplot(c(test1,test2,test3))
+summary(c(test1,test2,test3))
 
 #summing vectors 
 #by themselves 
 sum(test1)
 sum(test2)
+sum(test3)
 #but in combination
-test1+test2 # you'll see that in this case the vectors are added 'vertically'
+test1+test2+test3 # you'll see that in this case the vectors are added 'vertically'
 # this differs to 
-sum(test1) + sum(test2)
+sum(test1) + sum(test2) + sum(test3)
 # in this case mean may be more useful - in reality we wouldn't really be doing it this way but just for example
-(test1+test2)/2
+(test1+test2+test3)/3
 
 # what happens when these vectors are not the same length
 length(test1)
 length(test2)
-length(test1) == length(test2) # compare using double ==
+length(test3)
+length(test1) == length(test2) == length(test3)# compare using double ==
 #add a new value to test1
 (test1 = c(test1, 64))
 #the names are dropped
-test1 + test2
+test1 + test2 + test3
 #now that we've added another result to test 1, R does not allow for summing
 #part of the advantage of R, internal validation at this level
-length(test1) == length(test2) 
+length(test1) == length(test2) == length(test3)
 
 #characters can be added to a vector as well 
 y<-c("a", "b", "c", "d") 
@@ -75,15 +89,17 @@ rm(list=ls())
 #selecting components of vectors
 test1 <- c(23,40,19)
 test2 <- c(29,40,26)
+test3 <- c(25,35,30)
 animalnames = c("Animal 1", "Animal 2", "Animal 3")
 names(test1) = animalnames
 names(test2) = animalnames
+names(test3) = animalnames
 
-#animal 2
+#animal 3
 test1[3]
 test2[3]
-test1[c(1,2)]
-
+test3[3]
+test1[c(1,2,3)]
 #or
 test1["Animal 2"] # advantage of using Names
 

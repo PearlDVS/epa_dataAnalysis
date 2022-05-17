@@ -14,7 +14,8 @@ summary(wahid_outbreaks)
 str(wahid_species)
 summary(wahid_species)
 
-unique(wahid_outbreaks$outbreakInfoId)
+unique2,4,6,8,10,12,14,16,18,20
+length()
 
 # contingency tables handy to get an overview of data - but also to perform some statistics
 # goal in this case to to establish the species, diseases associated with them and outbreak status
