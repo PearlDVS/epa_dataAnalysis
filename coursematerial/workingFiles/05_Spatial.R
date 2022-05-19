@@ -185,6 +185,8 @@ str(samplLoc)
 sampLoc_region = merge(samplLoc, e, by.x=c('rowid'), by.y=c('id.y'))
 head(sampLoc_region)
 
+plot(samplLoc, add =TRUE)
+
 # establish if there are any missing classes - i.e. any points that were not within a buffer
 plot(sampLoc_region[is.na(sampLoc_region$class), ]) # there are
 nrow(sampLoc_region[is.na(sampLoc_region$class), ]) #a total of 6
@@ -205,6 +207,7 @@ sampLoc_region[is.na(sampLoc_region$class), ]$class <- "60km"
 plot(narok)
 plot(sampLoc_region, "class", col=rainbow(25), add = TRUE)
 plot(bAll, add = TRUE, "class", alpha = 0.3)
+
 
 # see the status of each point
 plot(sampLoc_region, "fmd_exp_st", col=c("green", "red"), add = TRUE)
@@ -266,6 +269,7 @@ mean_bAllCattleCount <-
 
 bAll = merge(bAll, mean_bAllCattleCount, by.x=c('rowID'), by.y=c('ID'))
 head(bAll, 10)
+plot(bAll, "cattleCount")
 
 
 #you can now see the issue of limiting the buffer to Narok - any polygon cut-off by a human boundary becomes less valuable
@@ -283,6 +287,7 @@ head(bAll)
 plot(bAll, "density")
 
 #exercise - Allocate the cattle density for each region to the sampLoc_region Vector
+
 plot(sampLoc_region, add = TRUE)
 
 # 5.4 - example of rasterizing a vector ####
@@ -306,7 +311,7 @@ plot(cattleDensNarok, alpha = 0.5, add = TRUE)
 
 
 #create a folder on PC to access in qGIS
-folderExport = "C:/Users/User/Desktop/plotqGIS"
+folderExport = "C:/Users/pmokoka/Desktop/plotqGIS"
   
 #write these files to that folder
 writeRaster(cattleDensNarok, filename = paste0(folderExport, "/cattleDensNarok.tif"), overwrite=TRUE)

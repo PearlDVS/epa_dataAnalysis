@@ -92,8 +92,8 @@ D <- 0.1 * (3 - 1) + 1; D
 
 #3.1.4a - Prevalence calculation - Based on design effect ####
 epi.conf(as.matrix(cbind(sum(df$fmd_exp_st), N.tested[1])), 
-         ctype = "agresti", 
-         method = "wilson", 
+         ctype = "prevalence", 
+         method = "fleiss", 
          conf.level = 0.95,
          design = D,
          N = 10000000) * 100 # here make the overarching population large
@@ -102,6 +102,8 @@ epi.conf(as.matrix(cbind(sum(df$fmd_exp_st), N.tested[1])),
 epi.conf(as.matrix(cbind(sum(df$fmd_exp_st), N.tested[1])), 
          ctype = "prevalence", method = "fleiss", N = 1000000, 
          design = 1, conf.level = 0.95) * 100
+((0.95+0.1)-(0.95*0.1))
+(0.95*0.1)
 
 #In this case because the sample size is so small per herd and the estimated ICC is so small the design effect has minimal impact
 
